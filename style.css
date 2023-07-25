@@ -10,13 +10,15 @@
 :root {
   font-family: "Source Serif Pro";
   font-size: 62.5%;
-
-  --text-color: #a54328;
 }
 
 body {
-  color: var(--text-color);
+  color: #a54328;
   font-size: 1.6rem;
+}
+
+#background {
+  display: none;
 }
 
 main {
@@ -32,15 +34,14 @@ main {
   gap: 3.2rem;
 }
 
-img{
-  widht: 100%;
+img {
+  width: 100%;
   margin-block: 3.2rem;
 }
 
 button {
   font-family: "Source Serif 4";
-  font-weight: 500;
-  background-color: var(--text-color);
+  background-color: #a54328;
 
   color: white;
 
@@ -54,8 +55,9 @@ button {
 
 h1,
 h2 {
-  font-size: 2.8rem;
-  line-height: 3.6rem;
+  /* clamp(min, ideal, alto) */
+  font-size: clamp(2.8rem, 2vw + 1rem, 4rem);
+  line-height: clamp(3.6rem, 2vw + 1rem, 5rem);
 }
 
 h2 {
@@ -65,14 +67,42 @@ h2 {
 p,
 li,
 strong {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
+  font-size: clamp(1.4rem, 1vw + 0.4rem, 2rem);
+  line-height: clamp(1.8rem, 1vw + 1rem, 2.5rem);
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 2.4rem;
 }
 
 ul {
   margin-bottom: 2.4rem;
+}
+
+@media (min-width: 1120px) {
+
+  main {
+    flex-direction: row;
+    max-width: fit-content;
+    gap: 16rem;
+
+    padding: 9rem 6rem;
+
+    
+  }
+
+  .recipe {
+    max-width: 43.5rem;
+  }
+
+  .ingredients {
+    max-width: 52.5rem;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
 }
